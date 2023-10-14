@@ -9,9 +9,9 @@ class Home_repoImp implements Homerepo {
   final ApiServer apiServer;
 
   Home_repoImp(this.apiServer);
-
+//*fetechNewsetBooks
   @override
-  Future<Either<Failure, List<BookModel>>> ftechNewsetBooks() async {
+  Future<Either<Failure, List<BookModel>>> fetechNewsetBooks() async {
     try {
       var data = await apiServer.get(
           endPoint:
@@ -30,6 +30,7 @@ class Home_repoImp implements Homerepo {
     }
   }
 
+//*fetchFeaturedBooks
   @override
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {

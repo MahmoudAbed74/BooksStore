@@ -6,6 +6,7 @@ abstract class Failure {
   const Failure(this.errMessage);
 }
 
+// ToDo   Expected Errors
 class SeverFailure extends Failure {
   SeverFailure(super.errMessage);
 

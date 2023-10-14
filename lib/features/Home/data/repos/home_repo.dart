@@ -3,6 +3,6 @@ import 'package:booklystore_app/features/Home/data/models/book_model/book_model.
 import 'package:dartz/dartz.dart';
 
 abstract class Homerepo {
-  Future<Either<Failure, List<BookModel>>> ftechNewsetBooks();
+  Future<Either<Failure, List<BookModel>>> fetechNewsetBooks();
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks();
 }
