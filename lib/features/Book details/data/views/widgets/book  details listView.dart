@@ -35,7 +35,11 @@ class SimilarListviewInBookDetails extends StatelessWidget {
           itemCount: 10,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
-            return const ListviewCustome_Item();
+            //! image Url
+            return const ListviewCustome_Item(
+              imageUrl:
+                  "https://gamepreorders.com/wp-content/uploads/2020/04/cover-art-2.jpg",
+            );
           },
         ),
       ),

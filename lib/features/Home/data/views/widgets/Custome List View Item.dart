@@ -1,9 +1,9 @@
-import 'package:booklystore_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
 class ListviewCustome_Item extends StatelessWidget {
-  const ListviewCustome_Item({super.key});
-
+  const ListviewCustome_Item({Key? key, required this.imageUrl})
+      : super(key: key);
+  final String imageUrl;
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
@@ -11,8 +11,8 @@ class ListviewCustome_Item extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            image: const DecorationImage(
-                image: AssetImage(AssetData.TestImage), fit: BoxFit.fill)),
+            image: DecorationImage(
+                image: NetworkImage(imageUrl), fit: BoxFit.fill)),
       ),
     );
   }

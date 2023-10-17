@@ -14,7 +14,10 @@ class BookDetailsPart1 extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .28),
-          child: const ListviewCustome_Item(),
+          //! image Url
+          child: const ListviewCustome_Item(
+              imageUrl:
+                  "https://gamepreorders.com/wp-content/uploads/2020/04/cover-art-2.jpg"),
         ),
         const SizedBox(
           height: 35,
