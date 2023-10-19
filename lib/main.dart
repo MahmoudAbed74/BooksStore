@@ -22,7 +22,7 @@ class Booklyapp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => NewsetBooksCubit(
-            getIt<Home_repoImp>(),
+            getIt<Home_repoImp>()..fetechNewsetBooks(),
           ),
         ),
         BlocProvider(
