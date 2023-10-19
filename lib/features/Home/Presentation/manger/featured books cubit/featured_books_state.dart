@@ -12,9 +12,9 @@ final class FeaturedBooksInitial extends FeaturedBooksState {}
 final class FeaturedBooksLoading extends FeaturedBooksState {}
 
 final class FeaturedBooksFaliare extends FeaturedBooksState {
-  final String errMess;
+  final String errMessage;
 
-  const FeaturedBooksFaliare(this.errMess);
+  const FeaturedBooksFaliare(this.errMessage);
 }
 
 final class FeaturedBooksSuccess extends FeaturedBooksState {

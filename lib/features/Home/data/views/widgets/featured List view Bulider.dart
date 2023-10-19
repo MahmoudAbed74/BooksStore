@@ -19,19 +19,21 @@ class FuturedListviewBuilder extends StatelessWidget {
             child: SizedBox(
               height: MediaQuery.of(context).size.height * .3,
               child: ListView.builder(
-                itemCount: 10,
+                itemCount: state.books.length,
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return ListviewCustome_Item(
-                      imageUrl: state.books[index].items[index].volumeInfo
-                          .imageLinks.thumbnail);
+                      imageUrl:
+                          state.books[index].volumeInfo.imageLinks?.thumbnail ??
+                              '');
                 },
               ),
             ),
           );
         } else if (state is FeaturedBooksFaliare) {
-          return Custome_ErrorFailure(errorMessage: state.errMess);
+          return Custome_ErrorFailure(errorMessage: state.errMessage);
+          // Custome_ErrorFailure(errorMessage: state.errMess);
         } else {
           return const Center(child: CustomeLoading());
         }

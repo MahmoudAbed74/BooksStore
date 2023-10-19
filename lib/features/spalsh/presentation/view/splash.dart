@@ -16,7 +16,7 @@ class splashView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image(
+          const Image(
             image: AssetImage(AssetData.LogoImage),
             fit: BoxFit.fill,
           ),
@@ -46,7 +46,7 @@ class _SplashViewPageState extends State<SplashViewPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 1), () {
       GoRouter.of(context).push(Routers.kHomeView);
     });
   }
