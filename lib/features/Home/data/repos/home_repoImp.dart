@@ -16,11 +16,12 @@ class Home_repoImp implements Homerepo {
       var data = await apiServer.get(
           endPoint:
               "volumes?Filtering=free-ebooks&Sorting=newest&q=subject: programming");
-      List<BookModel> books = List.empty();
-      print("object");
+      List<BookModel> books = [];
+
       for (var item in data["items"]) {
         books.add(BookModel.fromJson(item));
       }
+
       return right(books);
     } catch (e) {
       if (e is DioException) {
@@ -41,14 +42,11 @@ class Home_repoImp implements Homerepo {
       for (var item in data["items"]) {
         books.add(BookModel.fromJson(item));
       }
-      print("Done");
       return right(books);
     } catch (e) {
       if (e is DioException) {
-        print("sss");
         return left(SeverFailure.fromDioError(e));
       }
-      print("dd");
       return left(SeverFailure(e.toString()));
     }
   }

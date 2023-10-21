@@ -11,7 +11,7 @@ class TitleText extends StatelessWidget {
     return const Padding(
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
       child: Text(
-        "Best Seller",
+        "Newset Books",
         style: Text_Fonts_Styles.textStyle30,
       ),
     );

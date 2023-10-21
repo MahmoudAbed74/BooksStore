@@ -8,8 +8,8 @@ import 'package:go_router/go_router.dart';
 
 import 'Best Seller.dart';
 
-class ListViewBuilderBooks extends StatelessWidget {
-  const ListViewBuilderBooks({super.key});
+class ListViewBuilderNewsetbooks extends StatelessWidget {
+  const ListViewBuilderNewsetbooks({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +23,11 @@ class ListViewBuilderBooks extends StatelessWidget {
           return ListView.builder(
             physics: const NeverScrollableScrollPhysics(),
             padding: EdgeInsets.zero,
-            itemCount: 10,
+            itemCount: state.books.length,
             itemBuilder: (context, index) {
-              return const BestSellerItem();
+              return BestSellerItem(
+                bookModel: state.books[index],
+              );
             },
           );
         } else if (state is NewsetBooksFaliure) {

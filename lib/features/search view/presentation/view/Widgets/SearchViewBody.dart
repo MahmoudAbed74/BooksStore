@@ -50,7 +50,8 @@ class ListViewBuilderBooks extends StatelessWidget {
         padding: EdgeInsets.zero,
         itemCount: 10,
         itemBuilder: (context, index) {
-          return const BestSellerItem();
+          //! return const BestSellerItem();
+          return Text("0");
         },
       ),
     );

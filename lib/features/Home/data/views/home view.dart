@@ -1,6 +1,7 @@
 import 'package:booklystore_app/Constant.dart';
+import 'package:booklystore_app/features/Home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
-import 'widgets/List view Builder books.dart';
+import 'widgets/List view Builder Newsetbooks.dart';
 import 'widgets/Text title.dart';
 import 'widgets/custome AppBar.dart';
 import 'widgets/featured List view Bulider.dart';
@@ -31,7 +32,7 @@ class HomeView extends StatelessWidget {
             SliverFillRemaining(
               child: Padding(
                 padding: EdgeInsets.all(8.0),
-                child: ListViewBuilderBooks(),
+                child: ListViewBuilderNewsetbooks(),
               ),
             )
           ],
