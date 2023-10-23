@@ -5,9 +5,11 @@ class Rating extends StatelessWidget {
   const Rating(
       {super.key,
       this.mainAxisAlignment = MainAxisAlignment.start,
-      this.rating});
+      this.rating,
+      this.views});
   final MainAxisAlignment mainAxisAlignment;
-  final int? rating;
+  final num? rating;
+  final int? views;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -25,9 +27,9 @@ class Rating extends StatelessWidget {
             style: Text_Fonts_Styles.textStyle14,
           ),
         ),
-        const Opacity(
+        Opacity(
             opacity: .7,
-            child: Text("(2243)", style: Text_Fonts_Styles.textStyle14))
+            child: Text("$views", style: Text_Fonts_Styles.textStyle14))
       ],
     );
   }

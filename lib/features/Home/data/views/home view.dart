@@ -1,5 +1,4 @@
 import 'package:booklystore_app/Constant.dart';
-import 'package:booklystore_app/features/Home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'widgets/List view Builder Newsetbooks.dart';
 import 'widgets/Text title.dart';

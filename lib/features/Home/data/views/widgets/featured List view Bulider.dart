@@ -1,8 +1,10 @@
+import 'package:booklystore_app/core/utils/Routers.dart';
 import 'package:booklystore_app/core/widgets/Custome%20Error%20Failure.dart';
 import 'package:booklystore_app/core/widgets/Custome%20Loading.dart';
 import 'package:booklystore_app/features/Home/Presentation/manger/featured%20books%20cubit/featured_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import 'Custome List View Item.dart';
 
@@ -23,10 +25,16 @@ class FuturedListviewBuilder extends StatelessWidget {
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-                  return ListviewCustome_Item(
-                      imageUrl:
-                          state.books[index].volumeInfo.imageLinks?.thumbnail ??
-                              '');
+                  return GestureDetector(
+                    onTap: () {
+                      GoRouter.of(context).push(Routers.kBookDetialsBody,
+                          extra: state.books[index]);
+                    },
+                    child: ListviewCustome_Item(
+                        imageUrl: state.books[index].volumeInfo.imageLinks
+                                ?.thumbnail ??
+                            ''),
+                  );
                 },
               ),
             ),

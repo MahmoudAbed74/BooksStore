@@ -1,8 +1,10 @@
+import 'package:booklystore_app/core/utils/Routers.dart';
 import 'package:booklystore_app/core/utils/Texts%20Styles.dart';
 import 'package:booklystore_app/features/Home/data/models/book_model/book_model.dart';
 import 'package:booklystore_app/features/Home/data/views/widgets/Custome%20List%20View%20Item.dart';
 import 'package:booklystore_app/features/Home/data/views/widgets/Rating.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BestSellerItem extends StatelessWidget {
   const BestSellerItem({
@@ -12,37 +14,46 @@ class BestSellerItem extends StatelessWidget {
   final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          child: SizedBox(
-            height: 114,
-            child: ListviewCustome_Item(
-                imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? ''),
+    return GestureDetector(
+      onTap: () {
+        //* add extra : to add BookModel
+        GoRouter.of(context).push(Routers.kBookDetialsBody, extra: bookModel);
+      },
+      child: Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            child: SizedBox(
+              height: 114,
+              child: ListviewCustome_Item(
+                  imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? ''),
+            ),
           ),
-        ),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              titleItemBestSeller(titleText: bookModel.volumeInfo.title!),
-              titleItemAuthorBestSeller(
-                  titleAuthor: bookModel.volumeInfo.authors![0]),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.7,
-                child: Row(
-                  children: [
-                    const PriceBestSeller(bookPrice: "free"),
-                    const Spacer(),
-                    Rating(rating: bookModel.volumeInfo.ratingsCount ?? 0),
-                  ],
-                ),
-              )
-            ],
-          ),
-        )
-      ],
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                titleItemBestSeller(titleText: bookModel.volumeInfo.title!),
+                titleItemAuthorBestSeller(
+                    titleAuthor: bookModel.volumeInfo.authors![0]),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.7,
+                  child: Row(
+                    children: [
+                      const PriceBestSeller(bookPrice: "free"),
+                      const Spacer(),
+                      Rating(
+                        rating: bookModel.volumeInfo.averageRating ?? 0,
+                        views: bookModel.volumeInfo.ratingsCount ?? 0,
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }

@@ -1,11 +1,30 @@
 import 'package:booklystore_app/Constant.dart';
 import 'package:booklystore_app/features/Book%20details/data/views/widgets/book%20%20details%20listView.dart';
 import 'package:booklystore_app/features/Book%20details/data/views/widgets/book%20deatails%20data.dart';
-
+import 'package:booklystore_app/features/Home/Presentation/manger/Similar_books_Cubit/similar_books_cubit.dart';
+import 'package:booklystore_app/features/Home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
-class BookDetilsViewBody extends StatelessWidget {
-  const BookDetilsViewBody({super.key});
+class BookDetilsViewBody extends StatefulWidget {
+  const BookDetilsViewBody({
+    super.key,
+    required this.bookModel,
+  });
+  final BookModel bookModel;
+
+  @override
+  State<BookDetilsViewBody> createState() => _BookDetilsViewBodyState();
+}
+
+class _BookDetilsViewBodyState extends State<BookDetilsViewBody> {
+  @override
+  void initState() {
+    BlocProvider.of<SimilarBooksCubit>(context).fetchSimilardBooks(
+        category: widget.bookModel.volumeInfo.categories![0]);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,26 +33,30 @@ class BookDetilsViewBody extends StatelessWidget {
         appBar: AppBar(
             backgroundColor: KPrimary,
             leading: IconButton(
-                onPressed: () {}, icon: const Icon(Icons.exit_to_app)),
+                onPressed: () {
+                  GoRouter.of(context).pop();
+                },
+                icon: const Icon(Icons.exit_to_app)),
             actions: [
               IconButton(
                   onPressed: () {},
                   icon: const Icon(Icons.shopping_cart_outlined)),
             ]),
-        body: const Column(
+        body: Column(
           children: [
             // CustomScrollView(
-            //       slivers: [
-            //         SliverToBoxAdapter(
-            //           child: BookDetailsPart1(),
-            //         ),
-            //         SliverFillRemaining(
-            //           child: BookDetailsPart2(),
-            //         )
-            //       ],
-            //     ),
-            BookDetailsPart1(),
-            BookDetailsPart2()
+            //   slivers: [
+            //     SliverFillViewport(
+            //       delegate: SliverChildListDelegate.fixed([
+
+            //       ]),
+            //     )
+            //   ],
+            // ),
+            BookDetailsPart1(book: widget.bookModel),
+            BookDetailsPart2(
+              bookModel: widget.bookModel,
+            ),
           ],
         ),
       ),
