@@ -35,7 +35,7 @@ class BestSellerItem extends StatelessWidget {
                   children: [
                     const PriceBestSeller(bookPrice: "free"),
                     const Spacer(),
-                    Rating(rating: bookModel.volumeInfo.ratingsCount),
+                    Rating(rating: bookModel.volumeInfo.ratingsCount ?? 0),
                   ],
                 ),
               )
