@@ -1,5 +1,6 @@
 import 'package:booklystore_app/core/utils/get_it_Service%20Locator.dart';
 import 'package:booklystore_app/features/Home/Presentation/manger/Similar_books_Cubit/similar_books_cubit.dart';
+import 'package:booklystore_app/features/Home/Presentation/manger/cubit/search_view_page_cubit.dart';
 import 'package:booklystore_app/features/Home/data/models/book_model/book_model.dart';
 import 'package:booklystore_app/features/Home/data/repos/home_repoImp.dart';
 import 'package:booklystore_app/features/search%20view/presentation/Seach%20View%20Page.dart';
@@ -35,7 +36,10 @@ abstract class Routers {
       ),
       GoRoute(
         path: kSearchpage,
-        builder: (context, state) => const SearchViewPage(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => SearchViewPageCubit(getIt<Home_repoImp>()),
+          child: const SearchViewPage(),
+        ),
       )
     ],
   );

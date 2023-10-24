@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
 class TextformfieldSearch extends StatelessWidget {
-  const TextformfieldSearch({super.key});
-
+  TextformfieldSearch({super.key, this.searchReslut});
+  String? searchReslut;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onSaved: (newValue) {
+        searchReslut = newValue;
+      },
       decoration: InputDecoration(
           enabledBorder: Buildoutlineinputborder(),
           focusedBorder: Buildoutlineinputborder(),

@@ -1,4 +1,5 @@
 import 'package:booklystore_app/Constant.dart';
+import 'package:booklystore_app/Simple%20Bloc%20observer.dart';
 import 'package:booklystore_app/core/utils/Routers.dart';
 import 'package:booklystore_app/core/utils/get_it_Service%20Locator.dart';
 import 'package:booklystore_app/features/Home/Presentation/manger/featured%20books%20cubit/featured_books_cubit.dart';
@@ -10,7 +11,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   setupServiceLoctaor();
-  runApp(const Booklyapp());
+  BlocOverrides.runZoned(() {
+    runApp(const Booklyapp());
+  }, blocObserver: SimpleBlocobserver());
 }
 
 class Booklyapp extends StatelessWidget {
