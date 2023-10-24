@@ -18,6 +18,7 @@ class BookDetailsPart1 extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .28),
+
           //! image Url
           child: ListviewCustome_Item(
               imageUrl: book.volumeInfo.imageLinks?.thumbnail ?? ''),

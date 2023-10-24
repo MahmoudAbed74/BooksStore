@@ -1,11 +1,8 @@
-import 'package:booklystore_app/core/utils/Routers.dart';
 import 'package:booklystore_app/core/widgets/Custome%20Error%20Failure.dart';
 import 'package:booklystore_app/core/widgets/Custome%20Loading.dart';
 import 'package:booklystore_app/features/Home/Presentation/manger/newset%20books%20cubit/newset_books_cubit.dart';
-import 'package:booklystore_app/features/Home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 import 'Best Seller.dart';
 

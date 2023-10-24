@@ -15,8 +15,7 @@ class Home_repoImp implements Homerepo {
     try {
       var data = await apiServer.get(
           endPoint:
-              // "volumes?Filtering=free-ebooks&Sorting=newest&q=subject: programming"
-              "volumes?Filtering=free-ebooks&Sorting=relevance&q=intitle=programming");
+              "volumes?Filtering=free-ebooks&Sorting=newest&q=subject: programming");
       List<BookModel> books = [];
 
       for (var item in data["items"]) {
@@ -38,7 +37,7 @@ class Home_repoImp implements Homerepo {
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
       var data = await apiServer.get(
-          endPoint: "volumes?Filtering=free-ebooks&q=subject: programming");
+          endPoint: "volumes?Filtering=free-ebooks&q=subject: club");
       List<BookModel> books = [];
       for (var item in data["items"]) {
         books.add(BookModel.fromJson(item));
@@ -59,7 +58,7 @@ class Home_repoImp implements Homerepo {
     try {
       var data = await apiServer.get(
           endPoint:
-              "volumes?Filtering=free-ebooks&Sorting=relevance&q=subject: programming");
+              "volumes?Filtering=free-ebooks&Sorting=relevance&q=subject: $category");
       List<BookModel> books = [];
       for (var item in data["items"]) {
         books.add(BookModel.fromJson(item));
@@ -80,7 +79,7 @@ class Home_repoImp implements Homerepo {
     try {
       var data = await apiServer.get(
           endPoint:
-              "volumes?Filtering=free-ebooks&Sorting=relevance&q=intitle=programming");
+              "volumes?Filtering=free-ebooks&Sorting=relevance&q=intitle=$searchword");
       List<BookModel> books = [];
       for (var item in data["items"]) {
         books.add(BookModel.fromJson(item));
