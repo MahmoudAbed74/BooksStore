@@ -33,7 +33,7 @@ The app will launch on your device or emulator. You can browse the books by cate
 
 Here are some screenshots of the app:
 
-![Home screen]
+![[Home screen]](https://github.com/MahmoudAbed74/BooksStore/blob/main/ScreenShots/BookDetails.png)
 ![Search screen]
 ![Details screen]
 
