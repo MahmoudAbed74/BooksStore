@@ -1,4 +1,3 @@
-Thank you for answering my questions. Based on your answers, I have created a draft of your README file for your GitHub project. You can copy and paste it into your repository, and edit it as you wish. Here is the draft:
 
 # booklystore
 
