@@ -31,6 +31,7 @@ class BookDetailsPart1 extends StatelessWidget {
             book.volumeInfo.title!,
             style: Text_Fonts_Styles.textStyle18.copyWith(fontSize: 23),
             textAlign: TextAlign.center,
+            maxLines: 2,
           ),
         ),
         const SizedBox(

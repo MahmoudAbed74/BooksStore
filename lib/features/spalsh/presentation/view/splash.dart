@@ -23,11 +23,14 @@ class splashView extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          AnimatedTextKit(animatedTexts: [
-            WavyAnimatedText("Free Books",
-                textStyle: Text_Fonts_Styles.textStyle30
-                    .copyWith(fontWeight: FontWeight.w900)),
-          ])
+          Center(
+            child: AnimatedTextKit(animatedTexts: [
+              WavyAnimatedText("Free Books",
+                  textStyle: Text_Fonts_Styles.textStyle30
+                      .copyWith(fontWeight: FontWeight.w900),
+                  textAlign: TextAlign.center),
+            ]),
+          )
         ],
       ),
     );
@@ -44,9 +47,8 @@ class SplashViewPage extends StatefulWidget {
 class _SplashViewPageState extends State<SplashViewPage> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    Future.delayed(const Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 3), () {
       GoRouter.of(context).push(Routers.kHomeView);
     });
   }

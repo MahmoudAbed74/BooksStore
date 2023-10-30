@@ -1,4 +1,5 @@
 import 'package:booklystore_app/core/utils/Routers.dart';
+import 'package:booklystore_app/core/utils/Texts%20Styles.dart';
 import 'package:booklystore_app/core/widgets/Custome%20Error%20Failure.dart';
 import 'package:booklystore_app/core/widgets/Custome%20Loading.dart';
 import 'package:booklystore_app/features/Home/Presentation/manger/Similar_books_Cubit/similar_books_cubit.dart';
@@ -18,9 +19,15 @@ class BookDetailsPart2 extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text("you can also like"),
           const SizedBox(
-            height: 10,
+            height: 15,
+          ),
+          const Text(
+            "you can also like",
+            style: Text_Fonts_Styles.textStyle18,
+          ),
+          const SizedBox(
+            height: 15,
           ),
           SimilarListviewInBookDetails(bookModel: bookModel),
         ],
@@ -40,7 +47,7 @@ class SimilarListviewInBookDetails extends StatelessWidget {
         builder: (context, state) {
           if (state is SimilarBooksSuccess) {
             return SizedBox(
-              height: MediaQuery.of(context).size.height * .125,
+              height: MediaQuery.of(context).size.height * .3,
               child: ListView.builder(
                 itemCount: state.books.length,
                 scrollDirection: Axis.horizontal,
@@ -51,10 +58,13 @@ class SimilarListviewInBookDetails extends StatelessWidget {
                       GoRouter.of(context).push(Routers.kBookDetialsBody,
                           extra: state.books[index]);
                     },
-                    child: ListviewCustome_Item(
-                      imageUrl:
-                          state.books[index].volumeInfo.imageLinks?.thumbnail ??
-                              "",
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: ListviewCustome_Item(
+                        imageUrl: state.books[index].volumeInfo.imageLinks
+                                ?.thumbnail ??
+                            "",
+                      ),
                     ),
                   );
                 },

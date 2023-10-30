@@ -30,10 +30,13 @@ class FuturedListviewBuilder extends StatelessWidget {
                       GoRouter.of(context).push(Routers.kBookDetialsBody,
                           extra: state.books[index]);
                     },
-                    child: ListviewCustome_Item(
-                        imageUrl: state.books[index].volumeInfo.imageLinks
-                                ?.thumbnail ??
-                            ''),
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: ListviewCustome_Item(
+                          imageUrl: state.books[index].volumeInfo.imageLinks
+                                  ?.thumbnail ??
+                              ''),
+                    ),
                   );
                 },
               ),
